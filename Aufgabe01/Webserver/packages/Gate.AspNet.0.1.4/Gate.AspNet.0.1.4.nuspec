@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Gate.AspNet</id>
+    <version>0.1.4</version>
+    <title>Gate.AspNet</title>
+    <authors>Louis DeJardin</authors>
+    <owners>Louis DeJardin</owners>
+    <licenseUrl>https://raw.github.com/owin/gate/HEAD/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/owin/gate</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Gate.AspNet provides OWIN hosting support for ASP.NET.</description>
+    <summary>Gate.AspNet provides OWIN hosting support for ASP.NET.</summary>
+    <releaseNotes />
+    <copyright />
+    <language />
+    <dependencies>
+      <dependency id="Gate" version="0.1.4" />
+    </dependencies>
+  </metadata>
+</package>

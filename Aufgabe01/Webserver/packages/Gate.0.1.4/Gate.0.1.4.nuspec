@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Gate</id>
+    <version>0.1.4</version>
+    <title>Gate</title>
+    <authors>Louis DeJardin,  Benjamin van der Veen,  and contributors</authors>
+    <owners>Louis DeJardin,  Benjamin van der Veen,  and contributors</owners>
+    <licenseUrl>https://raw.github.com/owin/gate/HEAD/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/owin/gate</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Gate is a utility library for locating, manufacturing, and hosting OWIN applications.</description>
+    <summary>Gate is a utility library for locating, manufacturing, and hosting OWIN applications.</summary>
+  </metadata>
+</package>
