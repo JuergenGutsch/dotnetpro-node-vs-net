@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Gos.SimpleObjectStore</id>
+    <version>1.0.1.0</version>
+    <title>Gos.SimpleObjectStore</title>
+    <authors>Jürgen Gutsch</authors>
+    <owners>Jürgen Gutsch</owners>
+    <licenseUrl>http://opensource.org/licenses/mit-license.php</licenseUrl>
+    <projectUrl>https://bitbucket.org/JuergenGutsch/simpleobjectstore</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A simple object store library to persist objects for demo and testing applications</description>
+    <language>en-US</language>
+    <tags>object storage json database</tags>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="5.0.8" />
+    </dependencies>
+  </metadata>
+</package>
