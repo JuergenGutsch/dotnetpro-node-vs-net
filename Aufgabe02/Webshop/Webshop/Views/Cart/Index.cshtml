@@ -1,0 +1,66 @@
+﻿@model Webshop.Models.ShoppingCartModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+        <h2>Shopping Cart</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <ul class="nav nav-pills nav-stacked">
+            @foreach (var category in Model.Categories)
+            {
+                <li>
+                    @Html.ActionLink(category.CategoryName, "Articles", "Home", new { id = category.Id }, new { })
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="col-md-9">
+        <div class="list-group">
+            @if (Model.CardItems.Any())
+            {
+                foreach (var item in Model.CardItems)
+                {
+                    using (Html.BeginForm("UpdateCart", "Cart", new { id = item.Product.Id }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="list-group-item">
+                            <span class="badge">@item.Quantity</span>
+                            <h3>@item.Product.ProductName</h3>
+                            <p>
+                                @item.Product.QuantityPerUnit<br />
+                                @item.Product.UnitPrice.ToString("C")
+                            </p>
+                            <div class="input-group input-group-sm" style="text-align: right;">
+                                <span>quantity: </span>
+                                <input type="text" name="quantity" class="form-control" style="width: 40px;" value="@item.Quantity">
+                                <span class="input-group-btn">
+                                    <input type="submit" class="btn btn-info" value="Update Cart" />
+                                </span>
+                            </div>
+                        </div>
+                    }
+                }
+                using (Html.BeginForm("OrderCart", "Cart"))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="list-group-item">
+                        <h3 class="pull-right">
+                            Sum of all Items: @Model.SumAllItems.ToString("C")
+                            <input type="submit" class="btn btn-primary" value="Order Now" />
+                        </h3><div class="clearfix">&nbsp;</div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
