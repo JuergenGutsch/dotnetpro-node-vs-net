@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web;
 using Newtonsoft.Json;
+using Webshop.Infrastructure.Data.Entities;
 using Webshop.Infrastructure.Model;
 
 namespace Webshop.Infrastructure
@@ -33,9 +34,27 @@ namespace Webshop.Infrastructure
             }
         }
 
+        private const string CustomerName = "Customer";
+        public Customer Customer
+        {
+            get
+            {
+                var value = DeserializeFromSession<Customer>(CustomerName);
+                if (value == null)
+                {
+                    return new Customer();
+                }
+                return value;
+            }
+            set
+            {
+                SerializeIntoSession(value, CustomerName);
+            }
+        }
+
         private void SerializeIntoSession<T>(T value, string name)
         {
-            _session[ShoppingCartName] = JsonConvert.SerializeObject(value, Formatting.None);
+            _session[name] = JsonConvert.SerializeObject(value, Formatting.None);
         }
 
         private T DeserializeFromSession<T>(string name)

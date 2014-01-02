@@ -1,0 +1,73 @@
+﻿@model Webshop.Models.AddCustomerModel
+
+@{
+    ViewBag.Title = "OrderCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+        <h2>You personal Info</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <ul class="nav nav-pills nav-stacked">
+            @foreach (var category in Model.Categories)
+            {
+                <li>
+                    @Html.ActionLink(category.CategoryName, "Articles", "Home", new { id = category.Id }, new { })
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="col-md-9">
+        @using (Html.BeginForm("AddCustomerData", "Order"))
+        {
+            @Html.AntiForgeryToken()
+            <p>
+                Salutation: <br />
+                @Html.DropDownListFor(model => model.Salutation, new[]{
+                new SelectListItem {Text = "Mrs", Value = "f"},
+                new SelectListItem {Text = "Mr", Value = "m"}})
+            </p>
+            <p>
+                Name: <br />
+                @Html.TextBoxFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </p>
+            <p>
+                Family Name: <br />
+                @Html.TextBoxFor(model => model.FamilyName)
+                @Html.ValidationMessageFor(model => model.FamilyName)
+            </p>
+            <p>
+                Address: <br />
+                @Html.TextBoxFor(model => model.Address)
+                @Html.ValidationMessageFor(model => model.Address)
+            </p>
+            <p>
+                ZIP: <br />
+                @Html.TextBoxFor(model => model.Zip)
+                @Html.ValidationMessageFor(model => model.Zip)
+            </p>
+            <p>
+                City: <br />
+                @Html.TextBoxFor(model => model.City)
+                @Html.ValidationMessageFor(model => model.City)
+            </p>
+            <p>
+                Email: <br />
+                @Html.TextBoxFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+            </p>
+            <p>
+                <input type="reset" value="Reset" class="btn btn-default" />
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </p>
+        }
+    </div>
+</div>

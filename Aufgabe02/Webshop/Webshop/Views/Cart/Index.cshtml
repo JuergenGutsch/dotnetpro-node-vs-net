@@ -30,11 +30,12 @@
             {
                 foreach (var item in Model.CardItems)
                 {
+                    var canorder = item.Product.UnitsInStock > 0;
                     using (Html.BeginForm("UpdateCart", "Cart", new { id = item.Product.Id }))
                     {
                         @Html.AntiForgeryToken()
                         <div class="list-group-item">
-                            <span class="badge">@item.Quantity</span>
+                            <span class="badge">Units in stock: @item.Product.UnitsInStock</span>
                             <h3>@item.Product.ProductName</h3>
                             <p>
                                 @item.Product.QuantityPerUnit<br />
@@ -42,25 +43,22 @@
                             </p>
                             <div class="input-group input-group-sm" style="text-align: right;">
                                 <span>quantity: </span>
-                                <input type="text" name="quantity" class="form-control" style="width: 40px;" value="@item.Quantity">
+                                <input type="text" name="quantity" class="form-control" style="width: 40px;" @(!canorder ? "disabled=\"disabled\"" : String.Empty) value="@item.Quantity">
                                 <span class="input-group-btn">
-                                    <input type="submit" class="btn btn-info" value="Update Cart" />
+                                    <input type="submit" class="btn btn-info" @(!canorder ? "disabled=\"disabled\"" : String.Empty) value="Update Cart" />
                                 </span>
                             </div>
                         </div>
                     }
                 }
-                using (Html.BeginForm("OrderCart", "Cart"))
-                {
-                    @Html.AntiForgeryToken()
-                    <div class="list-group-item">
-                        <h3 class="pull-right">
-                            Sum of all Items: @Model.SumAllItems.ToString("C")
-                            <input type="submit" class="btn btn-primary" value="Order Now" />
-                        </h3><div class="clearfix">&nbsp;</div>
-                    </div>
-                }
+
+                <div class="list-group-item">
+                    <h3 class="pull-right">
+                        Sum of all Items: @Model.SumAllItems.ToString("C")
+                        @Html.ActionLink("Order Now", "OrderCart", "Order", new { }, new { @class = "btn btn-primary" })
+                    </h3><div class="clearfix">&nbsp;</div>
+                </div>
             }
         </div>
     </div>
-
+</div>

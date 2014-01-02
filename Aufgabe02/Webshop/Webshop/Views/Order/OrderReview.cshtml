@@ -1,0 +1,83 @@
+﻿@model Webshop.Models.OrderReviewModel
+
+@{
+    ViewBag.Title = "OrderReview";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+        <h2>Review your order</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <ul class="nav nav-pills nav-stacked">
+            @foreach (var category in Model.Categories)
+            {
+                <li>
+                    @Html.ActionLink(category.CategoryName, "Articles", "Home", new { id = category.Id }, new { })
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="col-md-9">
+        <h3>Your Order</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Unit Price</th>
+                    <th>Amount</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var i = 1;
+                }
+                @foreach (var item in Model.OrderItems)
+                {
+                    var price = item.Quantity * item.Product.UnitPrice;
+                    <tr>
+                        <td>@i</td>
+                        <td>@item.Product.ProductName</td>
+                        <td>@item.Product.UnitPrice.ToString("C")</td>
+                        <td>@item.Quantity</td>
+                        <th>@price.ToString("C")</th>
+                    </tr>
+                    i++;
+                }
+            </tbody>
+            <tbody>
+                <tr>
+                    <td colspan="4" class="text-right text-info">
+                        <strong>Sum of your order: </strong>
+                    </td>
+                    <td class="text-info">
+                        <strong>@Model.SumAllItems.ToString("C")</strong>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Xour Personal Information</h3>
+        <p>
+            @Model.Customer.Name @Model.Customer.FamilyName <br />
+            @Model.Customer.Address <br />
+            @Model.Customer.Zip @Model.Customer.City <br />
+            @Model.Customer.Email
+        </p>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ActionLink("Change Personal Data", "OrderCart", new { }, new { @class = "btn btn-default" })
+            <input type="submit" value="Order Now" class="btn btn-primary" />
+        }
+    </div>
+</div>

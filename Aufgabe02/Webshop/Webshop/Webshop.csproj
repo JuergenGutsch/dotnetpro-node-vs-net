@@ -164,6 +164,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -172,13 +173,15 @@
     <Compile Include="Infrastructure\Data\Entities\Customer.cs" />
     <Compile Include="Infrastructure\Data\Entities\Order.cs" />
     <Compile Include="Infrastructure\Data\Entities\Product.cs" />
-    <Compile Include="Infrastructure\Data\UnitOfWork.cs" />
+    <Compile Include="Infrastructure\Data\StorageContext.cs" />
     <Compile Include="Infrastructure\Model\ShoppingCart.cs" />
     <Compile Include="Infrastructure\Model\CartLineItem.cs" />
     <Compile Include="Infrastructure\SessionFacade.cs" />
     <Compile Include="Models\AddToCardModel.cs" />
     <Compile Include="Models\ArticlesModel.cs" />
     <Compile Include="Models\CategoriesModel.cs" />
+    <Compile Include="Models\AddCustomerModel.cs" />
+    <Compile Include="Models\OrderReviewModel.cs" />
     <Compile Include="Models\ShoppingCardModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -199,6 +202,8 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="App_Data\Category.json" />
     <Content Include="App_Data\Product.json" />
+    <Content Include="App_Data\Customer.json" />
+    <Content Include="App_Data\Order.json" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <Content Include="Scripts\jquery-2.0.3.min.js" />
@@ -228,6 +233,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Articles.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Order\OrderCart.cshtml" />
+    <Content Include="Views\Order\OrderReview.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

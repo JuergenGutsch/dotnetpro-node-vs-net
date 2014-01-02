@@ -7,16 +7,16 @@ namespace Webshop.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly UnitOfWork _unitOfWork;
+        private readonly StorageContext _storageContext;
 
         public HomeController()
         {
-            _unitOfWork = UnitOfWork.Current;
+            _storageContext = StorageContext.Current;
         }
 
         public ActionResult Index()
         {
-            var categories = _unitOfWork.Categories.LoadAll();
+            var categories = _storageContext.Categories.LoadAll();
 
             var model = new CategoriesModel
             {
@@ -27,8 +27,8 @@ namespace Webshop.Controllers
 
         public ActionResult Articles(int id)
         {
-            var categories = _unitOfWork.Categories.LoadAll();
-            var products = _unitOfWork.Products.LoadAll(x => x.CategoryId == id);
+            var categories = _storageContext.Categories.LoadAll();
+            var products = _storageContext.Products.LoadAll(x => x.CategoryId == id);
             var model = new ArticlesModel
             {
                 Categories = categories,
