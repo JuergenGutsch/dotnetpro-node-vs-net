@@ -16,7 +16,6 @@ namespace Webshop.Infrastructure
         }
 
         private const string ShoppingCartName = "ShoppingCart";
-
         public ShoppingCart ShoppingCart
         {
             get

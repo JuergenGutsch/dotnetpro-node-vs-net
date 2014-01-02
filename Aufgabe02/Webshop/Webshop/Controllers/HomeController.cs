@@ -39,6 +39,21 @@ namespace Webshop.Controllers
             return View(model);
         }
 
+        public ActionResult Article(int id)
+        {
+            var categories = _storageContext.Categories.LoadAll();
+            var product = _storageContext.Products.LoadSingle(x => x.Id == id);
+            
+            var model = new ArticleModel
+            {
+                Categories = categories,
+                Product = product,
+                SelectedCategoryId = product.CategoryId
+            };
+
+            return View(model);
+        }
+
         public ActionResult Warenkorb()
         {
             ViewBag.Message = "Your application description page.";

@@ -1,7 +1,7 @@
-﻿@model Webshop.Models.ArticlesModel
+﻿@model Webshop.Models.ArticleModel
 
 @{
-    ViewBag.Title = Model.Categories.First(x => x.Id == Model.SelectedCategoryId).CategoryName;
+    ViewBag.Title = Model.Product.ProductName;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -9,9 +9,10 @@
     <div class="col-md-3">
     </div>
     <div class="col-md-9">
-        <h2>@Model.Categories.First(x => x.Id == Model.SelectedCategoryId).CategoryName</h2>
+        <h2>@Model.Product.ProductName</h2>
     </div>
 </div>
+
 <div class="row">
     <div class="col-md-3">
         <ul class="nav nav-pills nav-stacked">
@@ -26,21 +27,18 @@
     </div>
     <div class="col-md-9">
         <div class="list-group">
-            @foreach (var product in Model.Products)
-            {
-                var canorder = product.UnitsInStock > 0;
+            @{
+                var canorder = Model.Product.UnitsInStock > 0;
 
-                using (Html.BeginForm("AddToCard", "Cart", new { id = product.Id }))
+                using (Html.BeginForm("AddToCard", "Cart", new { id = Model.Product.Id }))
                 {
                     @Html.AntiForgeryToken()
                     <div class="list-group-item">
-                        <span class="badge">Units in stock: @product.UnitsInStock</span>
-                        <h3>
-                            @Html.ActionLink(product.ProductName, "Article", new { id = product.Id })
-                        </h3>
+                        <span class="badge">Units in stock: @Model.Product.UnitsInStock</span>
+                        <h3>@Model.Product.ProductName</h3>
                         <p>
-                            @product.QuantityPerUnit<br />
-                            @product.UnitPrice.ToString("C")
+                            @Model.Product.QuantityPerUnit<br />
+                            @Model.Product.UnitPrice.ToString("C")
                         </p>
                         <div class="input-group input-group-sm" style="text-align: right;">
                             <span>quantity: </span>

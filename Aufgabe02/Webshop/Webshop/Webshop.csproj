@@ -178,6 +178,7 @@
     <Compile Include="Infrastructure\Model\CartLineItem.cs" />
     <Compile Include="Infrastructure\SessionFacade.cs" />
     <Compile Include="Models\AddToCardModel.cs" />
+    <Compile Include="Models\ArticleModel.cs" />
     <Compile Include="Models\ArticlesModel.cs" />
     <Compile Include="Models\CategoriesModel.cs" />
     <Compile Include="Models\AddCustomerModel.cs" />
@@ -235,6 +236,7 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Order\OrderCart.cshtml" />
     <Content Include="Views\Order\OrderReview.cshtml" />
+    <Content Include="Views\Home\Article.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

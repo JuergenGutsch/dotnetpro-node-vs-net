@@ -1,5 +1,4 @@
-﻿using System;
-using Gos.SimpleObjectStore;
+﻿using Gos.SimpleObjectStore;
 
 namespace Webshop.Infrastructure.Data.Entities
 {
