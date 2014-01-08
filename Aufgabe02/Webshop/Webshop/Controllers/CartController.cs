@@ -20,17 +20,22 @@ namespace Webshop.Controllers
             var session = new SessionFacade(HttpContext.Session);
             var categories = _storageContext.Categories.LoadAll();
 
-            var items = session.ShoppingCart.LineItems.Select(x => new ShoppingCartItemModel
+            var lineItems = session
+                .ShoppingCart
+                .LineItems
+                .Select(x => new ShoppingCartItemModel
             {
-                Product = _storageContext.Products.LoadSingle(y => y.Id == x.ProductId),
+                Product = _storageContext
+                    .Products
+                    .LoadSingle(y => y.Id == x.ProductId),
                 Quantity = x.Quantity
             });
 
             var model = new ShoppingCartModel
             {
-                CardItems = items,
+                CardItems = lineItems,
                 Categories = categories,
-                SumAllItems = items.Select(x => x.Product.UnitPrice * x.Quantity).Sum()
+                SumAllItems = lineItems.Select(x => x.Product.UnitPrice * x.Quantity).Sum()
             };
 
             return View(model);
@@ -41,7 +46,7 @@ namespace Webshop.Controllers
         public ActionResult UpdateCart(UpdateCardModel model)
         {
             var cart = new Cart(new SessionFacade(HttpContext.Session), _storageContext);
-            
+
             cart.UpdateCard(model.Id, model.Quantity);
 
             return RedirectToAction("Index");

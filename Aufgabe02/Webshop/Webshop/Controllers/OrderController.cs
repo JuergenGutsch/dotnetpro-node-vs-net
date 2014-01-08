@@ -26,6 +26,7 @@ namespace Webshop.Controllers
             var model = new AddCustomerModel
             {
                 Categories = categories,
+                CustomerId = customer.Id,
                 Name = customer.Name,
                 FamilyName = customer.FamilyName,
                 Address = customer.Address,
@@ -53,6 +54,7 @@ namespace Webshop.Controllers
             // do handle customer
             var customer = new Customer
             {
+                Id = model.CustomerId,
                 Salutation = model.Salutation,
                 Name = model.Name,
                 FamilyName = model.FamilyName,

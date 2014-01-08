@@ -28,6 +28,7 @@
         @using (Html.BeginForm("AddCustomerData", "Order"))
         {
             @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.CustomerId)
             <p>
                 Salutation: <br />
                 @Html.DropDownListFor(model => model.Salutation, new[]{

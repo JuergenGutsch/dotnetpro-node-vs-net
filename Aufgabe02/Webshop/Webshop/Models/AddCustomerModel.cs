@@ -6,6 +6,8 @@ namespace Webshop.Models
 {
     public class AddCustomerModel
     {
+        public int CustomerId { get; set; }
+
         [Required]
         public string Salutation { get; set; }
 

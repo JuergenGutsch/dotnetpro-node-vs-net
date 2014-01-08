@@ -7,10 +7,10 @@ namespace Webshop.Infrastructure.Data
     {
         private StorageContext()
         {
-            Categories = ObjectStore.GetInstance<Category, int>();
-            Products = ObjectStore.GetInstance<Product, int>();
-            Customers = new ObjectStore<Customer, int>();
-            Orders = new ObjectStore<Order, int>();
+            Categories = ObjectStore.GetInstance<Category>();
+            Products = ObjectStore.GetInstance<Product>();
+            Customers = ObjectStore.GetInstance<Customer>();
+            Orders = ObjectStore.GetInstance<Order>();
         }
 
         private static StorageContext _storageContext;
@@ -26,12 +26,12 @@ namespace Webshop.Infrastructure.Data
             }
         }
 
-        public IObjectStore<Category, int> Categories { get; set; }
+        public IObjectStore<Category> Categories { get; set; }
 
-        public IObjectStore<Product, int> Products { get; set; }
+        public IObjectStore<Product> Products { get; set; }
 
-        public IObjectStore<Customer, int> Customers { get; set; }
+        public IObjectStore<Customer> Customers { get; set; }
 
-        public IObjectStore<Order, int> Orders { get; set; }
+        public IObjectStore<Order> Orders { get; set; }
     }
 }
