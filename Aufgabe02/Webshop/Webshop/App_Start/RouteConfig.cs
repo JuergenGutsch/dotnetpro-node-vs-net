@@ -11,8 +11,8 @@ namespace Webshop
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = 0 }
+                url: "{controller}/{action}/{id}/{page}",
+                defaults: new { controller = "Home", action = "Index", id = 0, page = 0 }
             );
         }
     }

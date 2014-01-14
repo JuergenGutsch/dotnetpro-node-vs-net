@@ -53,5 +53,18 @@
                 }
             }
         </div>
+        <div class="btn-group">
+            @{
+                var canBwd = Model.CurrentPage > 0;
+                var canFwd = Model.CurrentPage + 1 < Model.Pages;
+            }
+            <a href="/Home/Articles/@Model.SelectedCategoryId/@(Model.CurrentPage - 1)" class="btn btn-default" @(!canBwd ? "disabled=\"disabled\"" : "")>&lt;</a>
+            @for (var i = 0; i < Model.Pages; i++)
+            {
+                <a href="/Home/Articles/@Model.SelectedCategoryId/@i" class="btn @(i==Model.CurrentPage?" btn-primary":" btn-default")" @(i == Model.CurrentPage ? "disabled=\"disabled\"" : "")>@(i + 1)</a>
+            }
+            <a href="/Home/Articles/@Model.SelectedCategoryId/@(Model.CurrentPage + 1)" class="btn btn-default" @(!canFwd ? "disabled=\"disabled\"" : "")>&gt;</a>
+
+        </div>
     </div>
 </div>
