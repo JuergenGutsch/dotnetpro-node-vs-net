@@ -39,6 +39,7 @@
                             @Html.ActionLink(product.ProductName, "Article", new { id = product.Id })
                         </h3>
                         <p>
+                            <img src="/Content/dummy.png" align="left" style="border:1px solid gray;margin-right:5px;" alt=""/>
                             @product.QuantityPerUnit<br />
                             @product.UnitPrice.ToString("C")
                         </p>
