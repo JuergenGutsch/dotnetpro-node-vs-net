@@ -2,7 +2,6 @@
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Threading;
 using System.Threading.Tasks;
 using BooksCollector.Core;
 using Gos.SimpleObjectStore;
@@ -58,10 +57,10 @@ namespace BooksCollector.Client
 
                 if (store.LoadAll().Any())
                 {
-                    var t = new Thread(() =>
+                    await Task.Factory.StartNew(async delegate
                     {
-                        Thread.Sleep(1000 * 30);
-                        RetryPublishAsync();
+                        await Task.Delay(1000 * 30);
+                        return RetryPublishAsync();
                     });
                 }
             }
