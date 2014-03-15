@@ -1,0 +1,60 @@
+﻿@model ImageGallery.Models.EditImageModel
+
+@{
+    ViewBag.Title = "Upload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>Upload new images</h1>
+    </div>
+</div>
+<div class="row" ng-controller="uploadController">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Drag Images and Image Infos in the Area below</div>
+            <div class="panel-body text-center" id="dropTarget">
+                <p>&nbsp;</p>
+                <p>Drop Images here</p>
+                <p>&nbsp;</p>
+            </div>
+        </div>
+        <p>{{title}} has {{images.length}} items</p>
+        <p class="text-right">
+            <button class="btn btn-primary" id="saveall" ng-click="saveall()">Save all</button>
+        </p>
+
+        <div class="panel panel-default" ng-repeat="image in images">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <p><img ng-src="{{image.dataurl}}" alt="" style="width:200px; height:auto; margin-right: 10px;"></p>
+                        <p><strong>Name: {{image.name}}</strong> <br />Size: {{image.size}} <br />Type: {{image.type}}</p>
+                    </div>
+                    <div class="col-md-8">
+                        <p>
+                            <label for="title_{{$index}}">Title:</label><br />
+                            <input id="title_{{$index}}" type="text" ng-model="image.title" class="form-control" />
+
+                        </p>
+                        <p>
+                            <label for="desc_{{$index}}">Description:</label><br />
+                            <textarea id="desc_{{$index}}" class="form-control" ng-model="image.desc"></textarea>
+                        </p>
+                    </div>
+                    <div class="col-md-1 bottom-right">
+                        <button ng-click="save(image)" class="btn btn-xs btn-primary" id="saveitem_{{$index}}" style="width: 100%;margin-bottom: 5px;">Save</button>
+                        <button ng-click="delete(image)" class="btn btn-xs btn-default" id="deleteitem_{{$index}}" style="width: 100%;margin-bottom: 5px;">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="text-right">
+            <button class="btn btn-primary" id="saveall" ng-click="saveall()">Save all</button>
+        </p>
+    </div>
+</div>
+<div class="progress-indicator">
+    <img src="/Content/icon_loading_75x75.gif" alt="" />
+</div>

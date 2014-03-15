@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageGallery", "Aufgabe04\ImageGallery.csproj", "{D50A0719-6C91-4230-B03F-55EF32741E6D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requirements", "Requirements", "{B02FD7CF-5F81-43E6-91E0-33705C8A214F}"
+	ProjectSection(SolutionItems) = preProject
+		err.txt = err.txt
+		Requirements.md = Requirements.md
+		test.txt = test.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageGallery.Tests", "ImageGalery.Tests\ImageGallery.Tests.csproj", "{E63E28DA-E255-419A-9E69-1D763B9D48CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D50A0719-6C91-4230-B03F-55EF32741E6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D50A0719-6C91-4230-B03F-55EF32741E6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D50A0719-6C91-4230-B03F-55EF32741E6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D50A0719-6C91-4230-B03F-55EF32741E6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E63E28DA-E255-419A-9E69-1D763B9D48CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E63E28DA-E255-419A-9E69-1D763B9D48CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E63E28DA-E255-419A-9E69-1D763B9D48CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E63E28DA-E255-419A-9E69-1D763B9D48CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
