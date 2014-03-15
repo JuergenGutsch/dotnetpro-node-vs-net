@@ -11,16 +11,16 @@
 
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
-        <ul class="gallery">
-            @foreach (var image in Model.Images)
-            {
-                <li>
-                    <a href="/api/Images/@image.Name/600/600" data-fancybox-group="gallerygroup" data-fancybox-title="@image.Title - @image.Desc">
-                        <img class="img-rounded" src="/api/Images/@image.Name/150/150" alt="" />
-                    </a>
-                </li>
-            }
-        </ul>
+<ul class="gallery">
+    @foreach (var image in Model.Images)
+    {
+        <li>
+            <a href="/api/Images/@image.Name/600/600" data-fancybox-group="gallerygroup" data-fancybox-title="@image.Title - @image.Desc">
+                <img class="img-rounded" src="/api/Images/@image.Name/150/150" alt="" />
+            </a>
+        </li>
+    }
+</ul>
     </div>
 </div>
 
@@ -28,16 +28,16 @@
 {
     <script>
         $(function () {
-            $('.gallery a').fancybox({
-                openEffect: 'elastic',
-                closeEffect: 'elastic',
-                type: 'image',
-                helpers: {
-                    title: {
-                        type: 'inside'
-                    }
-                }
-            });
+$('.gallery a').fancybox({
+    openEffect: 'elastic',
+    closeEffect: 'elastic',
+    type: 'image',
+    helpers: {
+        title: {
+            type: 'inside'
+        }
+    }
+});
         });
     </script>
 }
