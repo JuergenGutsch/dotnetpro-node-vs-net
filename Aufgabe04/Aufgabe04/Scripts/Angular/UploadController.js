@@ -4,6 +4,7 @@ app.controller('uploadController',
         // Bindable properties and functions are placed on vm.
         $scope.title = 'UploadController';
         $scope.images = [];
+        
         $scope.delete = function (item) {
             //alert('delete: ' + item.name);
             if (confirm('Are you really want to delete "' + item.name + '"?')) {
