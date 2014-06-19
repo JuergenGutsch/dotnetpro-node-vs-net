@@ -1,0 +1,6 @@
+﻿HTTP2: 
+https://github.com/MSOpenTech/http2-katana
+
+GIT: 
+https://github.com/projectkudu/kudu
+http://www.michaelfcollins3.me/blog/2012/05/18/implementing-a-git-http-server.html
